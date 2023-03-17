@@ -1,0 +1,68 @@
+.contain{
+    border: 2px solid red;
+    height: 45px;
+    background-color: orangered;
+    display: flex;
+    flex-direction: row;
+    padding: 2.5px;
+}
+.link{
+    border: 2px solid yellow;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: yellow;
+    text-decoration: none;
+    padding: 3px;
+    
+}
+.home{
+    border: 2px solid yellow;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-left: 10px;
+    color: yellow;
+    text-decoration: none;
+    padding: 3px;
+}
+.about{
+    border: 2px solid yellow;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-left: 10px;
+    color: yellow;
+    text-decoration: none;
+    padding: 3px;
+}
+.search{
+    border: 2px solid yellow;
+    margin-top: 3px;
+    margin-left: 680px;
+    border-radius: 10px;
+    background-color: orangered;
+    color: yellow;
+
+
+}
+.button{
+    border: 2px solid yellow;
+    margin-top: -3px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: orangered;
+    color: yellow;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bolder;
+    /* padding: -2px; */
+    
+}
