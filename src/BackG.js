@@ -1,29 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import './BackG.css'
 
 export default function BackG() {
+  const [downloadLink, setDownloadLink] = useState('')
+  const [inputValue, setInputValue] = useState('')
   function downloadFile(filename,content){
     const element =document.createElement('a');
     const blob =new Blob([content],{
       type:'plain/text'
     });
-    const fileUrl=URL.createObjectURL(blob);
-    element.setAttribute('href',fileUrl);
-    element.setAttribute('download',filename);
-    element.style.display='none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    // const fileUrl=URL.createObjectURL(blob);
+    // element.setAttribute('href',fileUrl);
+    // element.setAttribute('download',filename);
+    // element.style.display='none';
+    // document.body.appendChild(element);
+    // element.click();
+    // document.body.removeChild(element);
   };
-  window.onload=()=>{
-    document.getElementById('dowload').addEventListener('click',e=>{
-      const filename=document.getElementById('filename').value;
-      const content=document.getElementById('text').value;
-      if (filename&&content){
-        downloadFile(filename,content);
-      }
-        });
-  }
+  // window.onload=()=>{
+  //   document.getElementById('dowload').addEventListener('click',e=>{
+  //     const filename=document.getElementById('filename').value;
+  //     const content=document.getElementById('text').value;
+  //     if (filename&&content){
+  //       downloadFile(filename,content);
+  //     }
+  //       });
+  // }
   const[text,setText]=useState('');
   const handleOnChange=(event)=>{
     setText(event.target.value);
@@ -54,6 +56,17 @@ export default function BackG() {
   // const download=(url)=>{
   //   document.getElementById('down').src = url;
   // }
+
+  const makeTextFile = () => {
+    const data = new Blob([text], { type: 'text/plain' })
+    if (downloadLink !== '') window.URL.revokeObjectURL(downloadLink)
+    setDownloadLink(window.URL.createObjectURL(data))
+  }
+
+  useEffect(() => {
+    makeTextFile()
+  }, [text])
+
   return (
     <div className="back">
       <div className="point">
@@ -73,7 +86,7 @@ export default function BackG() {
         <form>
           <input className='button1' id='filename' type="text" value={text1} onChange={handleOnChange1} placeholder='Enter File Name with format'/>
         </form></div><div>
-        <button className="button1" id='download' >Download Text</button>
+        <button className="button1" id='download' ><a className='download' download={text1} href = {downloadLink}>Download Text</a></button>
         </div>
       </div>
       <h3 className='hea my-2'>Text Parameters</h3>
