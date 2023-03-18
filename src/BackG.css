@@ -45,3 +45,11 @@
     margin-left: 33px;
     font-weight: bolder;
 }
+.buttons{
+    display: flex;
+    flex-direction: row;
+}
+#filename{
+    width: 300px;
+    /* color: yellow; */
+}
